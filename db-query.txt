@@ -1,0 +1,94 @@
+create database horsedoku;
+use horsedoku;
+
+create table races(
+race_id int primary key auto_increment,
+race_name varchar(80),
+distance int,
+ground varchar(4)
+);
+
+create table horses(
+horse_id int primary key auto_increment,
+horse_name varchar(80),
+horse_birth date,
+colors varchar(80),
+G1_wins int,
+img_path varchar(200)
+);
+
+create table horse_raced(
+horse_id int,
+foreign key (horse_id) references horses(horse_id),
+race_id int,
+foreign key (race_id) references races(race_id),
+position int,
+ PRIMARY KEY (horse_id, race_id)
+);
+
+insert into races (race_name, distance, ground)
+values ("Tenno Sho", 3200, "turf");
+insert into races (race_name, distance, ground)
+values ("Yasuda Kinen", 1600, "turf");
+insert into races (race_name, distance, ground)
+values ("Satsuki Sho", 2000, "turf");
+insert into races (race_name, distance, ground)
+values ("Unicorn Stakes", 1900, "dirt");
+insert into races (race_name, distance, ground)
+values ("Sprinters Stakes", 1200, "turf");
+insert into races (race_name, distance, ground)
+values ("Arima Kinen", 2500, "turf");
+insert into races (race_name, distance, ground)
+values ("Japan Cup", 2400, "turf");
+insert into races (race_name, distance, ground)
+values ("Takamatsunomiya Kinen", 1200, "turf");
+insert into races (race_name, distance, ground)
+values ("Tokyo Daishoten", 2000, "dirt");
+
+insert into horses (horse_name, horse_birth, colors, G1_wins, img_path)
+values ("Agnes Digital", "1997-05-15", "red, yellow and cyan", 3, 'assets/agnes-digital.png');
+insert into horses (horse_name, horse_birth, colors, G1_wins, img_path)
+values ("Gold Ship","2009-05-06", "red and white",6, 'assets/gold-ship.png');
+insert into horses (horse_name, horse_birth, colors, G1_wins, img_path)
+values ("Special Week","1995-05-02", "purple and white", 3, 'assets/special-week.png');
+insert into horses (horse_name, horse_birth, colors, G1_wins, img_path)
+values ("Taiki Shuttle","1994-08-17", "green and white", 4, 'assets/taiki-shuttle.png');
+insert into horses (horse_name, horse_birth, colors, G1_wins, img_path)
+values ("Curren Chan","2007-03-31", "red, black and white", 2, 'assets/curren-chan.png');
+insert into horses (horse_name, horse_birth, colors, G1_wins, img_path)
+values ("Grass Wonder","1995-02-18", "red, blue and white", 4, 'assets/grass-wonder.png');
+insert into horses (horse_name, horse_birth, colors, G1_wins, img_path)
+values ("Shinko Windy","1993-04-14", "black", 4, 'assets/shinko-windy.png');
+insert into horses (horse_name, horse_birth, colors, G1_wins, img_path)
+values ("King Halo","1995-04-28", "green, blue and white", 1, 'assets/king-halo.png');
+insert into horses (horse_name, horse_birth, colors, G1_wins, img_path)
+values ("Copano Rickey","2010-03-24", "red and yellow", 3, 'assets/copano-rickey.png');
+
+insert into horse_raced(horse_id, race_id, position)
+values (1, 1, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (1, 2, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (2, 3, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (2, 6, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (3, 1, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (3, 7, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (1, 4, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (4, 5, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (4, 4, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (5, 5, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (6, 6, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (7, 4, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (8, 8, 1);
+insert into horse_raced(horse_id, race_id, position)
+values (9, 9, 1);
